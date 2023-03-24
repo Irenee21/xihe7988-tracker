@@ -1,12 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Server</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
 </head>
+
 <body>
-    <h1>dewe</h1>
+  <header>
+    <h1>Task Tracker</h1>
+    <form id='taskform'>
+    <div class="form-row">
+      <label for="taskName">Name</label>
+      <input type="text" name="taskName" id="taskName" required="true" />
+    </div>
+
+    <div class="form-row">
+      <label for="taskType">Type</label>
+      <input type="text" name="taskType" id="taskType" required="true" />
+    </div>
+
+    <div class="form-row">
+      <label for="taskRate">Rate</label>
+      <input type="text" name="taskRate" id="taskRate" required="true" />
+    </div>
+
+    <div class="form-row">
+      <label for="taskTime">Time</label>
+      <input type="text" name="taskTime" id="taskTime" required="true" />
+    </div>
+
+    <div class="form-row">
+      <label for="taskClient">Client</label>
+      <input type="text" name="taskClient" id="taskClient" required="true" />
+    </div>
+      
+    <div class="form-row">
+      <input type="submit">
+    </div>
+    </form>
+    <h2>Tasks</h2>
+    <ul id="tasklist">
+      <li></li>
+  
+    </ul>
+
+  </header>
+  <script src="scripts.js"></script>
 </body>
+
+
 </html>
