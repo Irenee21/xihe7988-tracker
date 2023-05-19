@@ -71,14 +71,14 @@ body, html { font-size: 100%; padding: 0; margin: 0; height: 100%;}
 
 body {
     font-family: 'Lato', Calibri, Arial, sans-serif;
-    color: #f2ede3;
+    color: #8f8f8f;
     background: #333;
     font-size: 0.9em;
     font-weight: 300;
 }
 
 a {
-	color: #f0f0f0;
+	color: #464646;
 	text-decoration: none;
 	font-weight: 700;
 	letter-spacing: 2px;
@@ -415,16 +415,13 @@ div.bl-panel-items > div.bl-hide-current-work {
 }
 
 .bl-main > section:first-child.bl-expand {
-	background: #EE4444;
+	background: #5fa8d3;
 }
 .bl-main > section:nth-child(2).bl-expand {
-	background: #F98262;
+	background: #f0f0f0;
 }
 .bl-main > section:nth-child(3).bl-expand {
-	background: #4BBE8E;
-}
-.bl-main > section:nth-child(4).bl-expand {
-	background: #0D8278;
+	background: #1b4965;
 }
 
 .bl-main.bl-expand-item > section:not(.bl-expand),

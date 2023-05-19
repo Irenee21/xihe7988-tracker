@@ -39,37 +39,15 @@
           </div>
 
           <div class="bl-content">
-            <h2>My Works</h2>
+            <h4>Hey Jason, well done this week!</h4>
+            <h4>See summary below and plan for next week.</h4>
 
-            <p>Mung bean maize dandelion sea lettuce catsear bunya nuts
-              ricebean tatsoi caulie horseradish pea.</p>
-
-            <ul id="bl-work-items">
-              <li data-panel="panel-1">
-                <a href="#"><img src="images/1.jpg"></a>
-              </li>
-
-              <li data-panel="panel-2">
-                <a href="#"><img src="images/2.jpg"></a>
-              </li>
-
-              <li data-panel="panel-3">
-                <a href="#"><img src="images/3.jpg"></a>
-              </li>
-
-              <li data-panel="panel-4">
-                <a href="#"><img src="images/4.jpg"></a>
-              </li>
-            </ul>
-
-            <p>Illustrations by <a href="http://dribbble.com/isaac317/click">Isaac
-                Montemayor</a></p>
           </div><span class="bl-icon bl-icon-close">Close</span>
         </section>
 
         <section>
           <div class="bl-box">
-            <h2>Blog</h2>
+            <h2>New Activity</h2>
           </div>
 
           <div class="bl-content">
@@ -78,35 +56,46 @@
             <form id='taskform'>
               <div class="form-row">
                 <label for="taskName">Name</label>
-                  <input type="text" name="taskName" id="taskName" required="true" />
+                <input type="text" name="taskName" id="taskName" required="true" />
               </div>
 
-              <div class="form-row">
+              <!-- <div class="form-row">
                 <label for="taskType">Category</label> 
-                <!-- dropdown menu -->
-                  <input type="text" name="taskCategory" id="taskCategory" required="true" />
+                <input type="text" name="taskCategory" id="taskCategory" required="true" />
+              </div> -->
+
+              <div class='form-row'>
+                <label for="taskCategory">Category</label>
+                <select id="taskCategory" name="taskCategory" id="taskCategory" required="true">
+                  <option value="balance">Balance</option>
+                  <option value="strengthen">Strengthen</option>
+                  <option value="flexibility">Flexibility</option>
+                  <option value="cardiovascularP">Cardiovascular</option>
+                </select>
               </div>
 
               <div class="form-row">
                 <label for="taskMood">Mood</label>
                 <!-- dropdown menu -->
-                  <input type="text" name="taskMood" id="taskMood" required="true" />
+                <input type="text" name="taskMood" id="taskMood" required="true" />
               </div>
 
               <div class="form-row">
                 <label for="taskEnergy">Energy</label>
-                  <input type="text" name="taskEnergy" id="taskEnergy" required="true" />
+                <input type="text" name="taskEnergy" id="taskEnergy" required="true" />
               </div>
 
               <div class="form-row">
                 <label for="taskTime">Time</label>
-                  <input type="text" name="taskTime" id="taskTime" required="true" />
+                <input type="text" name="taskTime" id="taskTime" required="true" />
               </div>
 
               <div class="form-row">
                 <label for="taskClient">Comments</label>
-                  <input type="text" name="taskComments" id="taskComments" required="true" />
+                <input type="text" name="taskComments" id="taskComments" required="true" />
               </div>
+
+
 
               <div class="form-row">
                 <input type="submit">
