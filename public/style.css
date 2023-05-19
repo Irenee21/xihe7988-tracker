@@ -21,44 +21,6 @@ html {
     text-align: center;
   }
                   
-  /* form {
-	color: #cccccc;
-    max-width: 500px;
-    margin: 0 auto;
-    border: 2px solid #cccccc;
-    padding: 2em 1em;
-  }
-                  
-  .form-row {
-    display: flex;
-    justify-content: flex-end;
-    padding: .8em;
-
-  }
-                  
-  .form-row > label {
-    width: 500px;
-  }
-                  
-  .form-row > input {
-    padding: .5em;
-    flex-grow: 2;
-  }
-
-  .checkbox-row {
-	display: flex;
-	flex-wrap: wrap;
-  }
-  
-  .checkbox-row .checkbox-column {
-	flex-basis: 50%;
-  }
-  
-  .checkbox-row label {
-	margin-right: 20px; 
-  } */
-  
-
 /* Styles for form rows */
 .form-row {
 	margin-bottom: 20px;
@@ -84,6 +46,7 @@ html {
   
   /* Styles for checkbox container */
 .checkbox-container {
+	color: #8f8f8f;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	padding: 10px;
@@ -131,7 +94,7 @@ html {
   }
   
   form {
-	background-color: #6ab7ff;
+	background-color: #b8ddff;
 	padding: 20px;
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -520,6 +483,7 @@ div.bl-panel-items > div.bl-hide-current-work {
 }
 .bl-main > section:nth-child(3).bl-expand {
 	background: #1b4965;
+	color: #5fa8d3;
 }
 
 .bl-main.bl-expand-item > section:not(.bl-expand),

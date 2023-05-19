@@ -39,7 +39,7 @@
           </div>
 
           <div class="bl-content">
-            <h4>Hey Jason, well done this week!</h4>
+            <h4>Hey <strong>Jason</strong>, well done this week!</h4>
             <h4>See summary below and plan for next week.</h4>
 
           </div><span class="bl-icon bl-icon-close">Close</span>
@@ -73,17 +73,19 @@
               <div class="form-row checkbox-row">
                 <label for="taskMood" name="taskMood" id="taskMood" required="true">Mood</label>
                 <div class="checkbox-container">
-                  <input type="checkbox" id="Euphoria/Positive Mood" name="Euphoria/Positive Mood" value="Euphoria/Positive Mood">
+                  <input type="checkbox" id="Euphoria/Positive Mood" name="Euphoria/Positive Mood"
+                    value="Euphoria/Positive Mood">
                   <label for="Euphoria/Positive Mood">Euphoria/Positive Mood</label><br>
                   <input type="checkbox" id="Relaxation/Calming" name="Relaxation/Calming" value="Relaxation/Calming">
                   <label for="Relaxation/Calming">Relaxation/Calming</label><br>
                   <input type="checkbox" id="Fatigue/Tiredness" name="Fatigue/Tiredness" value="Fatigue/Tiredness">
                   <label for="Fatigue/Tiredness">Fatigue/Tiredness</label>
-                  <input type="checkbox" id="Accomplishment/Satisfaction" name="Accomplishment/Satisfaction" value="Accomplishment/Satisfaction">
+                  <input type="checkbox" id="Accomplishment/Satisfaction" name="Accomplishment/Satisfaction"
+                    value="Accomplishment/Satisfaction">
                   <label for="Accomplishment/Satisfaction">Accomplishment/Satisfaction</label>
                 </div>
               </div>
-              
+
 
               <div class="form-row">
                 <label for="taskEnergy">Energy</label>
@@ -92,8 +94,12 @@
 
               <div class="form-row">
                 <label for="taskTime">Time</label>
-                <input type="text" name="taskTime" id="taskTime" required="true" />
+                <label for="appt">Select when did you START:</label>
+                <input type="time" id="taskTime" name="taskTime">
+                <label for="appt">Select when did you FINISH:</label>
+                <input type="time" id="taskTime" name="taskTime">
               </div>
+
 
               <div class="form-row">
                 <label for="taskClient">Comments</label>
