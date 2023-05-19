@@ -2,8 +2,9 @@
   "name": "xihe7988-tracker",
   "version": "1.0.0",
   "description": "\"portfolio\",",
-  "main": "server.js",
   "scripts": {
+    "prestart": "parcel build ./public/index.html",
+    "dev": "parcel serve ./public/index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
@@ -13,6 +14,7 @@
     "express": "^4.18.2"
   },
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.3",
     "parcel": "^2.8.3"
   }
 }
