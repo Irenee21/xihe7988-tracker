@@ -59,11 +59,6 @@
                 <input type="text" name="taskName" id="taskName" required="true" />
               </div>
 
-              <!-- <div class="form-row">
-                <label for="taskType">Category</label> 
-                <input type="text" name="taskCategory" id="taskCategory" required="true" />
-              </div> -->
-
               <div class='form-row'>
                 <!-- dropdown menu -->
                 <label for="taskCategory">Category</label>
@@ -75,17 +70,20 @@
                 </select>
               </div>
 
-              <div class="'form-row">
-                <label for="taskMood" name="taskMood" id="taskMood" required="true" >Mood</label>
-                <input type="checkbox" id="Euphoria/Positive Mood" name="Euphoria/Positive Mood" value="Euphoria/Positive Mood">
-                <label for="Euphoria/Positive Mood"> Euphoria/Positive Mood</label><br>
-                <input type="checkbox" id="Relaxation/Calming" name="Relaxation/Calming" value="Relaxation/Calming">
-                <label for="Relaxation/Calming"> Relaxation/Calming</label><br>
-                <input type="checkbox" id="Fatigue/Tiredness" name="Fatigue/Tiredness" value="Fatigue/Tiredness">
-                <label for="Fatigue/Tiredness"> Fatigue/Tiredness</label>
-                <input type="checkbox" id="Accomplishment/Satisfaction" name="Accomplishment/Satisfaction" value="Accomplishment/Satisfaction">
-                <label for="Accomplishment/Satisfaction"> Accomplishment/Satisfaction</label>
+              <div class="form-row checkbox-row">
+                <label for="taskMood" name="taskMood" id="taskMood" required="true">Mood</label>
+                <div class="checkbox-container">
+                  <input type="checkbox" id="Euphoria/Positive Mood" name="Euphoria/Positive Mood" value="Euphoria/Positive Mood">
+                  <label for="Euphoria/Positive Mood">Euphoria/Positive Mood</label><br>
+                  <input type="checkbox" id="Relaxation/Calming" name="Relaxation/Calming" value="Relaxation/Calming">
+                  <label for="Relaxation/Calming">Relaxation/Calming</label><br>
+                  <input type="checkbox" id="Fatigue/Tiredness" name="Fatigue/Tiredness" value="Fatigue/Tiredness">
+                  <label for="Fatigue/Tiredness">Fatigue/Tiredness</label>
+                  <input type="checkbox" id="Accomplishment/Satisfaction" name="Accomplishment/Satisfaction" value="Accomplishment/Satisfaction">
+                  <label for="Accomplishment/Satisfaction">Accomplishment/Satisfaction</label>
+                </div>
               </div>
+              
 
               <div class="form-row">
                 <label for="taskEnergy">Energy</label>

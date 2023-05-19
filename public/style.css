@@ -21,7 +21,8 @@ html {
     text-align: center;
   }
                   
-  form {
+  /* form {
+	color: #cccccc;
     max-width: 500px;
     margin: 0 auto;
     border: 2px solid #cccccc;
@@ -32,6 +33,7 @@ html {
     display: flex;
     justify-content: flex-end;
     padding: .8em;
+
   }
                   
   .form-row > label {
@@ -42,6 +44,102 @@ html {
     padding: .5em;
     flex-grow: 2;
   }
+
+  .checkbox-row {
+	display: flex;
+	flex-wrap: wrap;
+  }
+  
+  .checkbox-row .checkbox-column {
+	flex-basis: 50%;
+  }
+  
+  .checkbox-row label {
+	margin-right: 20px; 
+  } */
+  
+
+/* Styles for form rows */
+.form-row {
+	margin-bottom: 20px;
+  }
+  
+  /* Styles for labels */
+  label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+  }
+  
+  /* Styles for select dropdown */
+  select {
+	width: 100%;
+	padding: 10px;
+	border: none;
+	border-radius: 4px;
+	background-color: #f5f5f5;
+	color: #333;
+	font-size: 16px;
+  }
+  
+  /* Styles for checkbox container */
+.checkbox-container {
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 10px;
+	background-color: #f5f5f5;
+  }
+  
+  /* Styles for checkboxes */
+  .checkbox-container input[type="checkbox"] {
+	margin-right: 10px;
+  }
+  
+  /* Additional styles for form appearance */
+  body {
+	font-family: Arial, sans-serif;
+	background-color: #f0f0f0;
+	padding: 20px;
+  }
+  
+  form {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	max-width: 500px;
+	margin: 0 auto;
+  }
+  
+  
+  /* Styles for text input */
+  input[type="text"] {
+	width: 100%;
+	padding: 10px;
+	border: none;
+	border-radius: 4px;
+	background-color: #f5f5f5;
+	color: #333;
+	font-size: 16px;
+  }
+  
+  /* Additional styles for form appearance */
+  body {
+	font-family: Arial, sans-serif;
+	background-color: #f0f0f0;
+	padding: 20px;
+  }
+  
+  form {
+	background-color: #6ab7ff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	max-width: 500px;
+	margin: 0 auto;
+  }
+  
+
 
   /* transitions: Codrops, src https://tympanus.net/codrops/2013/04/23/fullscreen-layout-with-page-transitions/ */
 
