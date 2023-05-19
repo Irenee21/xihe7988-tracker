@@ -24,23 +24,23 @@ html {
   form {
     max-width: 500px;
     margin: 0 auto;
-    border: 2px solid grey;
+    border: 2px solid #cccccc;
     padding: 2em 1em;
   }
                   
   .form-row {
     display: flex;
     justify-content: flex-end;
-    padding: .5em;
+    padding: .8em;
   }
                   
   .form-row > label {
-    width: 100px;
+    width: 500px;
   }
                   
   .form-row > input {
     padding: .5em;
-    flex-grow: 1;
+    flex-grow: 2;
   }
 
   /* transitions: Codrops, src https://tympanus.net/codrops/2013/04/23/fullscreen-layout-with-page-transitions/ */
