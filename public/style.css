@@ -170,18 +170,21 @@ a:hover {
 .bl-main > section:first-child {
 	top: 0;
 	left: 0;
+	color: #f0f0f0;
 	background: #5fa8d3;
 }
 
 .bl-main > section:nth-child(2) {
 	top: 0;
 	left: 33%;
+	color: #1b4965;
 	background: #f0f0f0;
 }
 
 .bl-main > section:nth-child(3) {
 	top: 0;
 	left: 66%;
+	color:#f0f0f0;
 	background: #1b4965;
 }
 
