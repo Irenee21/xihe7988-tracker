@@ -180,3 +180,33 @@ var Boxlayout = (function() {
 
 /* src https://tympanus.net/codrops/2013/04/23/fullscreen-layout-with-page-transitions/ */
 
+// store user input in locatstorage
+// Get form element
+const form_data = document.getElementById('taskform');
+
+// Add event listener to form submission
+form_data.addEventListener('submit', function(e) {
+  e.preventDefault(); // Prevent form submission
+
+  // Get form field values
+  const taskName = document.getElementById('taskName').value;
+  const taskCategory = document.getElementById('taskCategory').value;
+  const taskMood = Array.from(document.querySelectorAll('.checkbox-container input[type="checkbox"]:checked')).map(checkbox => checkbox.value);
+  const taskEnergy = parseInt(document.getElementById('taskEnergy').value);
+  const taskTime = [
+    document.getElementsByName('taskTime')[0].value,
+    document.getElementsByName('taskTime')[1].value
+  ];
+  const taskComments = document.getElementById('taskComments').value;
+
+  // Save form data to local storage
+  localStorage.setItem('taskName', taskName);
+  localStorage.setItem('taskCategory', taskCategory);
+  localStorage.setItem('taskMood', JSON.stringify(taskMood));
+  localStorage.setItem('taskEnergy', taskEnergy);
+  localStorage.setItem('taskTime', JSON.stringify(taskTime));
+  localStorage.setItem('taskComments', taskComments);
+
+  // Optional: Redirect to another page or perform other actions
+  // window.location.href = 'next_page.html';
+});
