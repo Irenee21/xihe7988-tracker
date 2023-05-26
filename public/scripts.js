@@ -1,34 +1,35 @@
-const form = document.getElementById("taskform");
-const tasklist = document.getElementById("tasklist");
+// const form = document.getElementById("taskform");
+// const tasklist = document.getElementById("tasklist");
 
-form.addEventListener('submit', function(event){
-  event.preventDefault();
 
-  console.log(form.elements);
-  addTask(form.elements.taskName.value,
-         form.elements.taskType.value,
-         form.elements.taskRate.value,
-         form.elements.taskTime.value,
-         form.elements.taskClient.value)
-})
+// form.addEventListener('submit', function(event){
+//   event.preventDefault();
 
-var taskList = [];
+//   console.log(form.elements);
+//   addTask(form.elements.taskCategory.value,
+//          form.elements.taskType.value,
+//          form.elements.taskRate.value,
+//          form.elements.taskTime.value,
+//          form.elements.taskClient.value)
+// })
 
-function addList(name,type,rate,time,client){
-  let task = {
-  name: name,
-  type:type,
-  id: Date.now(),
-  date: new Date().toISOString(),
-  rate:rate,
-  time:time,
-  client:client,
-}
+// var taskList = [];
+
+// function addList(name,type,rate,time,client){
+//   let task = {
+//   name: name,
+//   type:type,
+//   id: Date.now(),
+//   date: new Date().toISOString(),
+//   rate:rate,
+//   time:time,
+//   client:client,
+// }
   
-  taskList.push(task)
-}
+//   taskList.push(task)
+// }
 
-addList("Home page design","Wireframe Design",50,3,"Firefox")
+// addList("Home page design","Wireframe Design",50,3,"Firefox")
   
 
 /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
@@ -180,12 +181,45 @@ var Boxlayout = (function() {
 
 /* src https://tympanus.net/codrops/2013/04/23/fullscreen-layout-with-page-transitions/ */
 
-// store user input in locatstorage
+// // store user input in locatstorage
+// // Get form element
+// const form_data = document.getElementById('taskform');
+
+// // Add event listener to form submission
+// form_data.addEventListener('submit', function(e) {
+//   e.preventDefault(); // Prevent form submission
+
+//   // Get form field values
+//   const taskName = document.getElementById('taskName').value;
+//   const taskCategory = document.getElementById('taskCategory').value;
+//   const taskMood = Array.from(document.querySelectorAll('.checkbox-container input[type="checkbox"]:checked')).map(checkbox => checkbox.value);
+//   const taskEnergy = parseInt(document.getElementById('taskEnergy').value);
+//   const taskTime = [
+//     document.getElementsByName('taskTime')[0].value,
+//     document.getElementsByName('taskTime')[1].value
+//   ];
+//   const taskComments = document.getElementById('taskComments').value;
+
+//   // Save form data to local storage
+//   localStorage.setItem('taskName', taskName);
+//   localStorage.setItem('taskCategory', taskCategory);
+//   localStorage.setItem('taskMood', JSON.stringify(taskMood));
+//   localStorage.setItem('taskEnergy', taskEnergy);
+//   localStorage.setItem('taskTime', JSON.stringify(taskTime));
+//   localStorage.setItem('taskComments', taskComments);
+
+//   // Optional: Redirect to another page or perform other actions
+//   // window.location.href = 'next_page.html';
+// });
+
+// Initialize an empty array to store the user input data
+let userInputData = [];
+
 // Get form element
-const form_data = document.getElementById('taskform');
+const form = document.getElementById('taskform');
 
 // Add event listener to form submission
-form_data.addEventListener('submit', function(e) {
+form.addEventListener('submit', function(e) {
   e.preventDefault(); // Prevent form submission
 
   // Get form field values
@@ -199,14 +233,41 @@ form_data.addEventListener('submit', function(e) {
   ];
   const taskComments = document.getElementById('taskComments').value;
 
-  // Save form data to local storage
-  localStorage.setItem('taskName', taskName);
-  localStorage.setItem('taskCategory', taskCategory);
-  localStorage.setItem('taskMood', JSON.stringify(taskMood));
-  localStorage.setItem('taskEnergy', taskEnergy);
-  localStorage.setItem('taskTime', JSON.stringify(taskTime));
-  localStorage.setItem('taskComments', taskComments);
+  // Create an object to store the current user input data
+  const userData = {
+    taskName,
+    taskCategory,
+    taskMood,
+    taskEnergy,
+    taskTime,
+    taskComments
+  };
+
+  // Push the current user input data into the array
+  userInputData.push(userData);
+
+  // Save the updated array to local storage
+  localStorage.setItem('userInputData', JSON.stringify(userInputData));
 
   // Optional: Redirect to another page or perform other actions
   // window.location.href = 'next_page.html';
 });
+
+
+// use user input data
+// Retrieve taskEnergy value from local storage
+const taskEnergy = localStorage.getItem('taskEnergy');
+
+// Convert taskEnergy value to integer
+const energyValue = parseInt(taskEnergy);
+
+// Create a Plotly chart
+// Replace 'chart-container' with the ID of the container element where you want to display the chart
+const chartContainer = document.getElementById('chart-container');
+
+// Example chart using taskEnergy value
+Plotly.newPlot(chartContainer, [{
+  x: ['Energy'],
+  y: [energyValue],
+  type: 'bar'
+}]);
