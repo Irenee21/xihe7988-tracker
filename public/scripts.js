@@ -301,4 +301,62 @@ const data = [{
 
 Plotly.newPlot('chart-container', data, layout);
 
-
+// Function to update the bar graph
+function updateBarGraph() {
+	// Retrieve userInputData from local storage
+	const userInputData = JSON.parse(localStorage.getItem('userInputData'));
+  
+	// Extract taskTime and taskEnergy from userInputData
+	const taskTimeArray = userInputData.map(data => data.taskTime);
+	const taskEnergyArray = userInputData.map(data => data.taskEnergy);
+  
+	// Create an array of x-axis values (taskTime)
+	const xAxisValues = taskTimeArray.flatMap(time => time);
+  
+	// Update the data and layout of the bar graph
+	Plotly.addTraces('chart-container', {
+	  x: [xAxisValues],
+	  y: [taskEnergyArray],
+	  type: 'bar'
+	});
+  }
+  
+//   // Retrieve the form element
+//   const form = document.getElementById('taskform');
+  
+  // Add event listener to form submission
+  form.addEventListener('submit', function(e) {
+	e.preventDefault(); // Prevent form submission
+  
+	// Get form field values
+	// ... (your existing code to retrieve the form data)
+  
+	// Create an object to store the current user input data
+	const userData = {
+	  taskName,
+	  taskCategory,
+	  taskMood,
+	  taskEnergy,
+	  taskTime,
+	  taskComments
+	};
+  
+	// Retrieve the existing userInputData from local storage
+	const existingData = JSON.parse(localStorage.getItem('userInputData')) || [];
+  
+	// Add the current user input data to the existing data array
+	const updatedData = [...existingData, userData];
+  
+	// Save the updated array to local storage
+	localStorage.setItem('userInputData', JSON.stringify(updatedData));
+  
+	// Update the bar graph
+	updateBarGraph();
+  
+	// Optional: Redirect to another page or perform other actions
+	// window.location.href = 'next_page.html';
+  });
+  
+  // Initial rendering of the bar graph
+  updateBarGraph();
+  
