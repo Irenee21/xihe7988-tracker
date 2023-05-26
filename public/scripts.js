@@ -301,8 +301,18 @@ const data = [{
 
 Plotly.newPlot('chart-container', data, layout);
 
-// Function to update the bar graph
-function updateBarGraph() {
+// Function to calculate the period from start time to finish time
+function calculatePeriod(startTime, finishTime) {
+	const start = new Date(`2000-01-01 ${startTime}`);
+	const finish = new Date(`2000-01-01 ${finishTime}`);
+	const period = finish - start;
+	// Convert the period to minutes (or any desired unit)
+	const periodInMinutes = Math.floor(period / 1000 / 60);
+	return periodInMinutes;
+  }
+  
+  // Function to update the bar graph
+  function updateBarGraph() {
 	// Retrieve userInputData from local storage
 	const userInputData = JSON.parse(localStorage.getItem('userInputData'));
   
@@ -310,19 +320,16 @@ function updateBarGraph() {
 	const taskTimeArray = userInputData.map(data => data.taskTime);
 	const taskEnergyArray = userInputData.map(data => data.taskEnergy);
   
-	// Create an array of x-axis values (taskTime)
-	const xAxisValues = taskTimeArray.flatMap(time => time);
+	// Calculate the period for each data point
+	const periodArray = taskTimeArray.map(time => calculatePeriod(time[0], time[1]));
   
 	// Update the data and layout of the bar graph
-	Plotly.addTraces('chart-container', {
-	  x: [xAxisValues],
-	  y: [taskEnergyArray],
-	  type: 'bar'
+	Plotly.update('chart-container', {
+	  x: [periodArray],
+	  y: [taskEnergyArray]
 	});
   }
-  
-//   // Retrieve the form element
-//   const form = document.getElementById('taskform');
+
   
   // Add event listener to form submission
   form.addEventListener('submit', function(e) {
