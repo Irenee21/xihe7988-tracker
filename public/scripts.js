@@ -253,21 +253,52 @@ form.addEventListener('submit', function(e) {
   // window.location.href = 'next_page.html';
 });
 
+// Retrieve userInputData from local storage
+const userInputData_1 = JSON.parse(localStorage.getItem('userInputData'));
 
-// use user input data
-// Retrieve taskEnergy value from local storage
-const taskEnergy = localStorage.getItem('taskEnergy');
+// Extract taskTime and taskEnergy from userInputData
+const taskTimeArray = userInputData_1.map(data => data.taskTime);
+const taskEnergyArray = userInputData_1.map(data => data.taskEnergy);
 
-// Convert taskEnergy value to integer
-const energyValue = parseInt(taskEnergy);
+// Create an array of x-axis values (taskTime)
+const xAxisValues = taskTimeArray.flatMap(time => time);
 
-// Create a Plotly chart
-// Replace 'chart-container' with the ID of the container element where you want to display the chart
-const chartContainer = document.getElementById('chart-container');
+// Define custom styling options
+const layout = {
+  title: 'Task Energy over Time',
+  xaxis: {
+    title: 'Task Time',
+    tickangle: -45,
+    tickfont: {
+      size: 12,
+      color: 'black'
+    }
+  },
+  yaxis: {
+    title: 'Task Energy',
+    tickfont: {
+      size: 12,
+      color: 'black'
+    }
+  },
+  bargap: 0.1,
+  bargroupgap: 0.2
+};
 
-// Example chart using taskEnergy value
-Plotly.newPlot(chartContainer, [{
-  x: ['Energy'],
-  y: [energyValue],
-  type: 'bar'
-}]);
+// Create a Plotly bar graph with custom styling
+const data = [{
+  x: xAxisValues,
+  y: taskEnergyArray,
+  type: 'bar',
+  marker: {
+    color: 'rgb(63, 127, 191)',
+    line: {
+      color: 'rgb(31, 95, 155)',
+      width: 1.5
+    }
+  }
+}];
+
+Plotly.newPlot('chart-container', data, layout);
+
+
