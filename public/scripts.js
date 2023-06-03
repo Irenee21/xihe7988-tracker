@@ -301,69 +301,51 @@ const data = [{
 
 Plotly.newPlot('chart-container', data, layout);
 
-// Function to calculate the period from start time to finish time
-function calculatePeriod(startTime, finishTime) {
-	const start = new Date(`2000-01-01 ${startTime}`);
-	const finish = new Date(`2000-01-01 ${finishTime}`);
-	const period = finish - start;
-	// Convert the period to minutes (or any desired unit)
-	const periodInMinutes = Math.floor(period / 1000 / 60);
-	return periodInMinutes;
-  }
-  
-  // Function to update the bar graph
-  function updateBarGraph() {
+// Function to update the bar graph
+function updateBarGraph() {
 	// Retrieve userInputData from local storage
 	const userInputData = JSON.parse(localStorage.getItem('userInputData'));
   
-	// Extract taskTime and taskEnergy from userInputData
-	const taskTimeArray = userInputData.map(data => data.taskTime);
-	const taskEnergyArray = userInputData.map(data => data.taskEnergy);
+	// Create arrays to store data for each trace
+	const xData = [];
+	const yData = [];
   
-	// Calculate the period for each data point
-	const periodArray = taskTimeArray.map(time => calculatePeriod(time[0], time[1]));
+	// Iterate over userInputData and extract taskTime and taskEnergy
+	userInputData.forEach(data => {
+	  const startTime = new Date(`2000-01-01 ${data.taskTime[0]}`);
+	  const finishTime = new Date(`2000-01-01 ${data.taskTime[1]}`);
+	  const period = finishTime.getTime() - startTime.getTime();
+	  const periodInMinutes = Math.floor(period / (1000 * 60)); // Convert to minutes
   
-	// Update the data and layout of the bar graph
-	Plotly.update('chart-container', {
-	  x: [periodArray],
-	  y: [taskEnergyArray]
+	  xData.push(periodInMinutes);
+	  yData.push(data.taskEnergy);
 	});
-  }
-
   
-  // Add event listener to form submission
-  form.addEventListener('submit', function(e) {
-	e.preventDefault(); // Prevent form submission
+	// Create an array of trace objects
+	const traces = [{
+	  x: xData,
+	  y: yData,
+	  type: 'bar'
+	}];
   
-	// Get form field values
-	// ... (your existing code to retrieve the form data)
-  
-	// Create an object to store the current user input data
-	const userData = {
-	  taskName,
-	  taskCategory,
-	  taskMood,
-	  taskEnergy,
-	  taskTime,
-	  taskComments
+	// Define the layout options for the bar graph
+	const layout = {
+	  title: 'Task Energy vs. Period',
+	  xaxis: {
+		title: 'Period (minutes)'
+	  },
+	  yaxis: {
+		title: 'Task Energy'
+	  }
 	};
   
-	// Retrieve the existing userInputData from local storage
-	const existingData = JSON.parse(localStorage.getItem('userInputData')) || [];
-  
-	// Add the current user input data to the existing data array
-	const updatedData = [...existingData, userData];
-  
-	// Save the updated array to local storage
-	localStorage.setItem('userInputData', JSON.stringify(updatedData));
-  
-	// Update the bar graph
-	updateBarGraph();
-  
-	// Optional: Redirect to another page or perform other actions
-	// window.location.href = 'next_page.html';
-  });
+	// Update the data of the existing plot
+	Plotly.update('chart-container', traces, layout);
+  }
   
   // Initial rendering of the bar graph
+  Plotly.newPlot('chart-container', [], {});
+  
+  // Call the updateBarGraph() function initially
   updateBarGraph();
   
