@@ -1,36 +1,3 @@
-// const form = document.getElementById("taskform");
-// const tasklist = document.getElementById("tasklist");
-
-
-// form.addEventListener('submit', function(event){
-//   event.preventDefault();
-
-//   console.log(form.elements);
-//   addTask(form.elements.taskCategory.value,
-//          form.elements.taskType.value,
-//          form.elements.taskRate.value,
-//          form.elements.taskTime.value,
-//          form.elements.taskClient.value)
-// })
-
-// var taskList = [];
-
-// function addList(name,type,rate,time,client){
-//   let task = {
-//   name: name,
-//   type:type,
-//   id: Date.now(),
-//   date: new Date().toISOString(),
-//   rate:rate,
-//   time:time,
-//   client:client,
-// }
-  
-//   taskList.push(task)
-// }
-
-// addList("Home page design","Wireframe Design",50,3,"Firefox")
-  
 
 /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
  * Build: https://modernizr.com/download/#-cssanimations-csstransitions-touch-shiv-cssclasses-prefixed-teststyles-testprop-testallprops-prefixes-domprefixes-load
@@ -178,39 +145,6 @@ var Boxlayout = (function() {
 	return { init : init };
 
 })();
-
-/* src https://tympanus.net/codrops/2013/04/23/fullscreen-layout-with-page-transitions/ */
-
-// // store user input in locatstorage
-// // Get form element
-// const form_data = document.getElementById('taskform');
-
-// // Add event listener to form submission
-// form_data.addEventListener('submit', function(e) {
-//   e.preventDefault(); // Prevent form submission
-
-//   // Get form field values
-//   const taskName = document.getElementById('taskName').value;
-//   const taskCategory = document.getElementById('taskCategory').value;
-//   const taskMood = Array.from(document.querySelectorAll('.checkbox-container input[type="checkbox"]:checked')).map(checkbox => checkbox.value);
-//   const taskEnergy = parseInt(document.getElementById('taskEnergy').value);
-//   const taskTime = [
-//     document.getElementsByName('taskTime')[0].value,
-//     document.getElementsByName('taskTime')[1].value
-//   ];
-//   const taskComments = document.getElementById('taskComments').value;
-
-//   // Save form data to local storage
-//   localStorage.setItem('taskName', taskName);
-//   localStorage.setItem('taskCategory', taskCategory);
-//   localStorage.setItem('taskMood', JSON.stringify(taskMood));
-//   localStorage.setItem('taskEnergy', taskEnergy);
-//   localStorage.setItem('taskTime', JSON.stringify(taskTime));
-//   localStorage.setItem('taskComments', taskComments);
-
-//   // Optional: Redirect to another page or perform other actions
-//   // window.location.href = 'next_page.html';
-// });
 
 // Initialize an empty array to store the user input data
 let userInputData = [];
