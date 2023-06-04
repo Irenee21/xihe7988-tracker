@@ -146,174 +146,133 @@ var Boxlayout = (function () {
 
 })();
 
-// Initialize an empty array to store the user input data
 let userInputData = [];
 
 let data_list = document.querySelector(".data-list");
 
-let card = document.createElement("div");
-card.setAttribute("class", "card");
+function createCard(userInputData) {
+  let card = document.createElement("div");
+  card.setAttribute("class", "card");
 
-let heading = document.createElement("h1");
-let paragraph = document.createElement("p");
-paragraph.innerHTML = `Energy: ${userInputData.taskEnergy} 
-<br> Mood: ${userInputData.taskMood}`;
+  let heading = document.createElement("h1");
+  heading.textContent = userInputData.taskName;
 
-   // Append all the sub elements to the card container
-   card.appendChild(heading);
-   card.appendChild(paragraph);
+  let paragraph = document.createElement("p");
+  paragraph.innerHTML = `Exercise Energy: ${userInputData.taskEnergy}kj <br/> Exercise Category: ${userInputData.taskCategory}`;
 
-   data_list.appendChild(card);
+  card.appendChild(heading);
+  card.appendChild(paragraph);
+
+  return card;
+}
+
+function updateCards() {
+  data_list.innerHTML = ""; // Clear the existing cards
+
+  if (stored_data !== null) {
+    stored_data.forEach((userInputData) => {
+      let listItem = document.createElement('li');
+      listItem.appendChild(createCard(userInputData));
+      data_list.appendChild(listItem);
+    });
+  }
+}
 
 // Get form element
 const form = document.getElementById('taskform');
 
 // Add event listener to form submission
 form.addEventListener('submit', function (e) {
-	e.preventDefault(); // Prevent form submission
+  e.preventDefault(); // Prevent form submission
 
-	// Get form field values
-	const taskName = document.getElementById('taskName').value;
-	const taskCategory = document.getElementById('taskCategory').value;
-	const taskMood = Array.from(document.querySelectorAll('.checkbox-container input[type="checkbox"]:checked')).map(checkbox => checkbox.value);
-	const taskEnergy = parseInt(document.getElementById('taskEnergy').value);
-	const taskTime = [
-		document.getElementsByName('taskTime')[0].value,
-		document.getElementsByName('taskTime')[1].value
-	];
-	const taskComments = document.getElementById('taskComments').value;
+  // Get form field values
+  const taskName = document.getElementById('taskName').value;
+  const taskCategory = document.getElementById('taskCategory').value;
+  const taskMood = Array.from(document.querySelectorAll('.checkbox-container input[type="checkbox"]:checked')).map(checkbox => checkbox.value);
+  const taskEnergy = parseInt(document.getElementById('taskEnergy').value);
+  const taskTime = [
+    document.getElementsByName('taskTime')[0].value,
+    document.getElementsByName('taskTime')[1].value
+  ];
+  const taskComments = document.getElementById('taskComments').value;
 
-	// Create an object to store the current user input data
-	const userData = {
-		taskName,
-		taskCategory,
-		taskMood,
-		taskEnergy,
-		taskTime,
-		taskComments
-	};
+  // Create an object to store the current user input data
+  const userData = {
+    taskName,
+    taskCategory,
+    taskMood,
+    taskEnergy,
+    taskTime,
+    taskComments
+  };
 
-	// Push the current user input data into the array
-	userInputData.push(userData);
+  // Push the current user input data into the array
+  userInputData.push(userData);
 
-	// Save the updated array to local storage
-	localStorage.setItem('userInputData', JSON.stringify(userInputData));
+  // Save the updated array to local storage
+  localStorage.setItem('userInputData', JSON.stringify(userInputData));
 
-	updateCards();
+  updateCards();
 });
 
 // Retrieve userInputData from local storage
-const userInputData_1 = JSON.parse(localStorage.getItem('userInputData'));
+let stored_data = JSON.parse(localStorage.getItem('userInputData')) || [];
 
 // Extract taskTime and taskEnergy from userInputData
-const taskTimeArray = userInputData_1.map(data => data.taskTime);
-const taskEnergyArray = userInputData_1.map(data => data.taskEnergy);
+const taskEnergyArray = stored_data.map(data => data.taskEnergy);
+const taskNameArray = stored_data.map(data => data.taskName);
 
-// Create an array of x-axis values (taskTime)
-const xAxisValues = taskTimeArray.flatMap(time => time);
+function updateBarGraph() {
+  // Create arrays to store data for each trace
+  const xData = taskNameArray;
+  const yData = taskEnergyArray;
 
-let stored_data = JSON.parse(localStorage.getItem('userInputData'))
+  // Create an array of trace objects
+  const data = [{
+    x: xData,
+    y: yData,
+    type: 'bar',
+    marker: {
+      color: 'rgb(63, 127, 191)',
+      line: {
+        color: 'rgb(31, 95, 155)',
+        width: 1.5
+      }
+    }
+  }];
 
-// Retrieving the values from local storage
-const taskName = localStorage.getItem('taskName');
-const taskCategory = localStorage.getItem('taskCategory');
-const taskMood = JSON.parse(localStorage.getItem('taskMood'));
-const taskEnergy = parseInt(localStorage.getItem('taskEnergy'));
-const taskTime = JSON.parse(localStorage.getItem('taskTime'));
+  // Define the layout options for the bar graph
+  const layout = {
+    title: 'Exercise Energy',
+    xaxis: {
+      title: 'Exercise Name',
+      tickangle: -45,
+      tickfont: {
+        size: 12,
+        color: 'black'
+      }
+    },
+    yaxis: {
+      title: 'Energy (kj)',
+      tickfont: {
+        size: 12,
+        color: 'black'
+      }
+    },
+    bargap: 0.1,
+    bargroupgap: 0.2
+  };
 
-
-
-function updateCards() {
-	if (stored_data !== null) {
-		stored_data.forEach((userInputData) => {
-			let listItem = document.createElement('li');
-			listItem.innerHTML = `<div class='card'><h1>${userInputData.taskName}</h1>
-			Exercise Energy:${userInputData.taskEnergy}kj <br/> Exercise Category: ${userInputData.taskCategory}</div>`
-			data_list.appendChild(listItem)
-		})
-	}
+  // Update the chart data and layout
+  Plotly.newPlot('chart-container', data, layout);
 }
+
+// Call the updateCards() function initially
 updateCards();
 
-// Define custom styling options
-const layout = {
-	title: 'Task Energy over Time',
-	xaxis: {
-		title: 'Task Time',
-		tickangle: -45,
-		tickfont: {
-			size: 12,
-			color: 'black'
-		}
-	},
-	yaxis: {
-		title: 'Task Energy',
-		tickfont: {
-			size: 12,
-			color: 'black'
-		}
-	},
-	bargap: 0.1,
-	bargroupgap: 0.2
-};
+// Call the updateBarGraph() function initially
+updateBarGraph();
 
-// Create a Plotly bar graph with custom styling
-const data = [{
-	x: xAxisValues,
-	y: taskEnergyArray,
-	type: 'bar',
-	marker: {
-		color: 'rgb(63, 127, 191)',
-		line: {
-			color: 'rgb(31, 95, 155)',
-			width: 1.5
-		}
-	}
-}];
-
-Plotly.newPlot('chart-container', data, layout);
-
-// Function to update the bar graph
-function updateBarGraph() {
-	// Retrieve userInputData from local storage
-	const userInputData = JSON.parse(localStorage.getItem('userInputData'));
-
-	// Create arrays to store data for each trace
-	const xData = [];
-	const yData = [];
-
-	// Iterate over userInputData and extract taskTime and taskEnergy
-	userInputData.forEach(data => {
-		const startTime = new Date(`2000-01-01 ${data.taskTime[0]}`);
-		const finishTime = new Date(`2000-01-01 ${data.taskTime[1]}`);
-		const period = finishTime.getTime() - startTime.getTime();
-		const periodInMinutes = Math.floor(period / (1000 * 60)); // Convert to minutes
-
-		xData.push(periodInMinutes);
-		yData.push(data.taskEnergy);
-	});
-
-	// Create an array of trace objects
-	const traces = [{
-		x: xData,
-		y: yData,
-		type: 'bar'
-	}];
-
-	// Define the layout options for the bar graph
-	const layout = {
-		title: 'Task Energy vs. Period',
-		xaxis: {
-			title: 'Period (minutes)'
-		},
-		yaxis: {
-			title: 'Task Energy'
-		}
-	};
-
-	// Update the data of the existing plot
-	Plotly.update('chart-container', traces, layout);
-}
 
 // Initial rendering of the bar graph
 Plotly.newPlot('chart-container', [], {});
