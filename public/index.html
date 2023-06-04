@@ -10,7 +10,6 @@
 </head>
 
 <body>
-  <!-- partial:index.partial.html -->
   <div class="container">
     <div class="conta">
       <div class="bl-main" id="bl-main">
@@ -52,10 +51,10 @@
             <h4>Hey <strong>Jason</strong>, well done this week!</h4>
             <h4>See summary below and plan for next week.</h4>
             <div id="data-container">
-              <div id="chart-container" style="width:70%">
+              <div id="chart-container" style="width:70%; display:inline-block;">
                 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
               </div>
-              <div class="data-list">
+              <div class="data-list" style="display:inline-block;">
                 <!-- This should remain empty - our content will be dynamically loaded with JS -->
               </div>
             </div>
@@ -74,7 +73,7 @@
             <form id='taskform'>
               <div class="form-row">
                 <label for="taskName">Name</label>
-                <input type="text" name="taskName" id="taskName" required="true" />
+                <input type="text" name="taskName" id="taskName" placeholder="enter a name for your exercise" required="true" />
               </div>
 
               <div class='form-row'>
@@ -90,7 +89,9 @@
 
               <div class="form-row checkbox-row">
                 <label for="taskMood" name="taskMood" id="taskMood" required="true">Mood</label>
+
                 <div class="checkbox-container">
+                  <!-- checkbox for exercise mood  -->
                   <input type="checkbox" id="Euphoria/Positive Mood" name="Euphoria/Positive Mood"
                     value="Euphoria/Positive Mood">
                   <label for="Euphoria/Positive Mood">Euphoria/Positive Mood</label><br>
@@ -107,7 +108,7 @@
 
               <div class="form-row">
                 <label for="taskEnergy">Energy<small>(kj)</small></label>
-                <input type="text" name="taskEnergy" id="taskEnergy" required="true" />
+                <input type="text" name="taskEnergy" id="taskEnergy" placeholder='enter active Kilojoules' required="true" />
               </div>
 
               <div class="form-row">
@@ -121,7 +122,7 @@
 
               <div class="form-row">
                 <label for="taskComments">Comments</label>
-                <input type="text" name="taskComments" id="taskComments" required="true" />
+                <input type="text" name="taskComments" id="taskComments" placeholder="leave some comments here" required="true" />
               </div>
 
               <div class="form-row" id="submit">
@@ -137,73 +138,6 @@
           </div><span class="bl-icon bl-icon-close">Close</span>
         </section><!-- Panel items for the works -->
 
-        <!-- <div class="bl-panel-items" id="bl-panel-work-items">
-          <div data-panel="panel-1">
-            <div>
-              <img src="images/1.jpg">
-
-              <h3>Fixie bespoke</h3>
-
-              <p>Iphone artisan direct trade ethical Austin. Fixie
-                bespoke banh mi ugh, deep v vinyl hashtag. Tumblr
-                gentrify keffiyeh pop-up iphone twee biodiesel. Occupy
-                american apparel freegan cliche. Mustache trust fund
-                8-bit jean shorts mumblecore thundercats. Pour-over
-                small batch forage cray, banjo post-ironic flannel
-                keffiyeh cred ethnic semiotics next level tousled
-                fashion axe. Sustainable cardigan keytar fap bushwick
-                bespoke.</p>
-            </div>
-          </div> -->
-
-        <!-- <div data-panel="panel-2">
-            <div>
-              <img src="images/2.jpg">
-
-              <h3>Chillwave mustache</h3>
-
-              <p>Squid vinyl scenester literally pug, hashtag tofu
-                try-hard typewriter polaroid craft beer mlkshk cardigan
-                photo booth PBR. Chillwave 90's gentrify american
-                apparel carles disrupt. Pinterest semiotics
-                single-origin coffee craft beer thundercats irony,
-                tumblr bushwick intelligentsia pickled. Narwhal
-                mustache godard master cleanse street art, occupy ugh
-                selfies put a bird on it cray salvia four loko
-                gluten-free shoreditch.</p>
-            </div>
-          </div>
-
-          <div data-panel="panel-3">
-            <div>
-              <img src="images/3.jpg">
-
-              <h3>Austin hella</h3>
-
-              <p>Ethical cray wayfarers leggings vice, seitan banksy
-                small batch ethnic master cleanse. Pug chillwave etsy,
-                scenester meh occupy blue bottle tousled blog tonx
-                pinterest selvage mixtape swag cosby sweater. Synth
-                tousled direct trade, hella Austin craft beer ugh
-                chambray.</p>
-            </div>
-          </div>
-
-          <div data-panel="panel-4">
-            <div>
-              <img src="images/4.jpg">
-
-              <h3>Brooklyn dreamcatcher</h3>
-
-              <p>Fashion axe 90's pug fap. Blog wayfarers brooklyn
-                dreamcatcher, bicycle rights retro YOLO. Wes anderson
-                lomo 90's food truck 3 wolf moon, twee jean shorts.
-                Iphone small batch twee wolf yr before they sold out.
-                Brooklyn echo park cred, portland pug selvage flannel
-                seitan tousled mcsweeney's.</p>
-            </div>
-          </div> -->
-
         <nav>
           <span class="bl-next-work">&gt; Next Project</span>
           <span class="bl-icon bl-icon-close"></span>
@@ -213,7 +147,7 @@
   </div>
   </div><!-- /container -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="js/boxlayout.js"></script>
+  <!-- <script src="js/boxlayout.js"></script> -->
   <script>
     $(function () {
       Boxlayout.init();

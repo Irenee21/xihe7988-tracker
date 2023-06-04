@@ -149,6 +149,22 @@ var Boxlayout = (function () {
 // Initialize an empty array to store the user input data
 let userInputData = [];
 
+let data_list = document.querySelector(".data-list");
+
+let card = document.createElement("div");
+card.setAttribute("class", "card");
+
+let heading = document.createElement("h1");
+let paragraph = document.createElement("p");
+paragraph.innerHTML = `Energy: ${userInputData.taskEnergy} 
+<br> Mood: ${userInputData.taskMood}`;
+
+   // Append all the sub elements to the card container
+   card.appendChild(heading);
+   card.appendChild(paragraph);
+
+   data_list.appendChild(card);
+
 // Get form element
 const form = document.getElementById('taskform');
 
@@ -196,7 +212,6 @@ const taskEnergyArray = userInputData_1.map(data => data.taskEnergy);
 // Create an array of x-axis values (taskTime)
 const xAxisValues = taskTimeArray.flatMap(time => time);
 
-let data_list = document.querySelector(".data-list");
 let stored_data = JSON.parse(localStorage.getItem('userInputData'))
 
 // Retrieving the values from local storage
@@ -213,7 +228,7 @@ function updateCards() {
 		stored_data.forEach((userInputData) => {
 			let listItem = document.createElement('li');
 			listItem.innerHTML = `<div class='card'><h1>${userInputData.taskName}</h1>
-      (${userInputData.taskEnergy}) <br/> Population: ${userInputData.taskCategory}</div>`
+			Exercise Energy:${userInputData.taskEnergy}kj <br/> Exercise Category: ${userInputData.taskCategory}</div>`
 			data_list.appendChild(listItem)
 		})
 	}
