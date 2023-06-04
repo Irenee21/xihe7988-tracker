@@ -233,9 +233,9 @@ function updateBarGraph() {
     y: yData,
     type: 'bar',
     marker: {
-      color: 'rgb(63, 127, 191)',
+      color: '#1b4965',
       line: {
-        color: 'rgb(31, 95, 155)',
+        color: '#1b4965',
         width: 1.5
       }
     }
@@ -243,7 +243,9 @@ function updateBarGraph() {
 
   // Define the layout options for the bar graph
   const layout = {
-    title: 'Exercise Energy',
+	paper_bgcolor: '#f0f0f0',
+	plot_bgcolor: '#f0f0f0',
+    title: 'Weekly Summary',
     xaxis: {
       title: 'Exercise Name',
       tickangle: -45,
