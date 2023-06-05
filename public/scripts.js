@@ -1,38 +1,27 @@
-
-/* Modernizr 2.6.2 (Custom Build) | MIT & BSD
- * Build: https://modernizr.com/download/#-cssanimations-csstransitions-touch-shiv-cssclasses-prefixed-teststyles-testprop-testallprops-prefixes-domprefixes-load
- */
-
-/**
- * boxlayout.js v1.0.0
- * http://www.codrops.com
- *
- * Licensed under the MIT license.
- * https://www.opensource.org/licenses/mit-license.php
- * 
- * Copyright 2013, Codrops
- * http://www.codrops.com
- */
-
 var Boxlayout = (function () {
+	// expanded box layout 
+	// reference: https://tympanus.net/codrops/2013/04/23/fullscreen-layout-with-page-transitions/
 
-	var $el = $('#bl-main'),
+	// defines an immediately-invoked 
+	// function expression (IIFE) that encapsulates the functionality of 
+	// the "Boxlayout" module. It creates a JavaScript object with an 
+	// "init" method that initializes the module. 
+	// The variables starting with "$" represent jQuery objects for
+	// various elements in the HTML document
+
+	var $el = $('#main'),
 		$sections = $el.children('section'),
-		// works section
-		$sectionWork = $('#bl-work-section'),
-		// work items
-		$workItems = $('#bl-work-items > li'),
-		// work panels
 		$workPanelsContainer = $('#bl-panel-work-items'),
 		$workPanels = $workPanelsContainer.children('div'),
 		totalWorkPanels = $workPanels.length,
-		// navigating the work panels
+		// navigating the panels
 		$nextWorkItem = $workPanelsContainer.find('nav > span.bl-next-work'),
-		// if currently navigating the work items
+		// if currently navigating the items
 		isAnimating = false,
-		// close work panel trigger
+		// close panel trigger
 		$closeWorkItem = $workPanelsContainer.find('nav > span.bl-icon-close'),
 		transEndEventNames = {
+			// transition event 
 			'WebkitTransition': 'webkitTransitionEnd',
 			'MozTransition': 'transitionend',
 			'OTransition': 'oTransitionEnd',
@@ -54,9 +43,9 @@ var Boxlayout = (function () {
 
 			var $section = $(this);
 
-			// expand the clicked section and scale down the others
-			$section.on('click', function () {
 
+			$section.on('click', function () {
+				// expand the selected section
 				if (!$section.data('open')) {
 					$section.data('open', true).addClass('bl-expand bl-expand-top');
 					$el.addClass('bl-expand-item');
@@ -77,29 +66,10 @@ var Boxlayout = (function () {
 				$el.removeClass('bl-expand-item');
 
 				return false;
-
 			});
-
 		});
 
-		// clicking on a work item: the current section scales down and the respective work panel slides up
-		$workItems.on('click', function (event) {
-
-			// scale down main section
-			$sectionWork.addClass('bl-scale-down');
-
-			// show panel for this work item
-			$workPanelsContainer.addClass('bl-panel-items-show');
-
-			var $panel = $workPanelsContainer.find("[data-panel='" + $(this).data('panel') + "']");
-			currentWorkPanel = $panel.index();
-			$panel.addClass('bl-show-work');
-
-			return false;
-
-		});
-
-		// navigating the work items: current work panel scales down and the next work panel slides up
+		// navigating the items: current panel scales down and the next panel slides up
 		$nextWorkItem.on('click', function (event) {
 
 			if (isAnimating) {
@@ -137,45 +107,46 @@ var Boxlayout = (function () {
 			$workPanels.eq(currentWorkPanel).removeClass('bl-show-work');
 
 			return false;
-
 		});
-
 	}
-
 	return { init: init };
-
 })();
 
+
 let userInputData = [];
-
+// it defines "userInputData" is an array that will store user input data
 let data_list = document.querySelector(".data-list");
-
+// "data_list" is a reference to the HTML element with the class "data-list" using the document.querySelector method
 function createCard(userInputData) {
-  let card = document.createElement("div");
-  card.setAttribute("class", "card");
+	// fonction to create card according to user input data 
+	// reference: tutorial work 'Countries of nthe World API' 
+	let card = document.createElement("div");
+	card.setAttribute("class", "card");
 
-  let heading = document.createElement("h1");
-  heading.textContent = userInputData.taskName;
+	let heading = document.createElement("h1");
+	heading.textContent = userInputData.taskName;
 
-  let paragraph = document.createElement("p");
-  paragraph.innerHTML = `Exercise Energy: ${userInputData.taskEnergy}kj <br/> Exercise Category: ${userInputData.taskCategory}`;
+	let paragraph = document.createElement("p");
+	paragraph.innerHTML = `Exercise Energy: ${userInputData.taskEnergy}kj <br/> Exercise Category: ${userInputData.taskCategory}`;
 
-  card.appendChild(heading);
-  card.appendChild(paragraph);
+	card.appendChild(heading);
+	card.appendChild(paragraph);
 
-  return card;
+	return card;
 }
 
 function updateCards() {
-  data_list.innerHTML = ""; // Clear the existing cards
-
-  if (stored_data !== null) {
-    stored_data.forEach((userInputData) => {
-      let listItem = document.createElement('li');
-      listItem.appendChild(createCard(userInputData));
-      data_list.appendChild(listItem);
-    });
-  }
+	// function to update cards 
+	data_list.innerHTML = ""; // Clear the existing cards
+	// estimate whether it is empty or not 
+	if (stored_data !== null) {
+		stored_data.forEach((userInputData) => {
+			// if it not empty, store items in data_list 
+			let listItem = document.createElement('li');
+			listItem.appendChild(createCard(userInputData));
+			data_list.appendChild(listItem);
+		});
+	}
 }
 
 // Get form element
@@ -183,36 +154,36 @@ const form = document.getElementById('taskform');
 
 // Add event listener to form submission
 form.addEventListener('submit', function (e) {
-  e.preventDefault(); // Prevent form submission
+	e.preventDefault(); // Prevent form submission
 
-  // Get form field values
-  const taskName = document.getElementById('taskName').value;
-  const taskCategory = document.getElementById('taskCategory').value;
-  const taskMood = Array.from(document.querySelectorAll('.checkbox-container input[type="checkbox"]:checked')).map(checkbox => checkbox.value);
-  const taskEnergy = parseInt(document.getElementById('taskEnergy').value);
-  const taskTime = [
-    document.getElementsByName('taskTime')[0].value,
-    document.getElementsByName('taskTime')[1].value
-  ];
-  const taskComments = document.getElementById('taskComments').value;
+	// Get form field values
+	const taskName = document.getElementById('taskName').value;
+	const taskCategory = document.getElementById('taskCategory').value;
+	const taskMood = Array.from(document.querySelectorAll('.checkbox-container input[type="checkbox"]:checked')).map(checkbox => checkbox.value);
+	const taskEnergy = parseInt(document.getElementById('taskEnergy').value);
+	const taskTime = [
+		document.getElementsByName('taskTime')[0].value,
+		document.getElementsByName('taskTime')[1].value
+	];
+	const taskComments = document.getElementById('taskComments').value;
 
-  // Create an object to store the current user input data
-  const userData = {
-    taskName,
-    taskCategory,
-    taskMood,
-    taskEnergy,
-    taskTime,
-    taskComments
-  };
+	// Create an object to store the current user input data
+	const userData = {
+		taskName,
+		taskCategory,
+		taskMood,
+		taskEnergy,
+		taskTime,
+		taskComments
+	};
 
-  // Push the current user input data into the array
-  userInputData.push(userData);
+	// Push the current user input data into the array
+	userInputData.push(userData);
 
-  // Save the updated array to local storage
-  localStorage.setItem('userInputData', JSON.stringify(userInputData));
+	// Save the updated array to local storage
+	localStorage.setItem('userInputData', JSON.stringify(userInputData));
 
-  updateCards();
+	updateCards();
 });
 
 // Retrieve userInputData from local storage
@@ -223,60 +194,56 @@ const taskEnergyArray = stored_data.map(data => data.taskEnergy);
 const taskNameArray = stored_data.map(data => data.taskName);
 
 function updateBarGraph() {
-  // Create arrays to store data for each trace
-  const xData = taskNameArray;
-  const yData = taskEnergyArray;
+	// Create arrays to store data for each trace
+	const xData = taskNameArray;
+	const yData = taskEnergyArray;
 
-  // Create an array of trace objects
-  const data = [{
-    x: xData,
-    y: yData,
-    type: 'bar',
-    marker: {
-      color: '#1b4965',
-      line: {
-        color: '#1b4965',
-        width: 1.5
-      }
-    }
-  }];
+	// Create an array of trace objects
+	const data = [{
+		x: xData,
+		y: yData,
+		type: 'bar',
+		marker: {
+			color: '#1b4965',
+			line: {
+				color: '#1b4965',
+				width: 1.5
+			}
+		}
+	}];
 
-  // Define the layout options for the bar graph
-  const layout = {
-	paper_bgcolor: '#f0f0f0',
-	plot_bgcolor: '#f0f0f0',
-    title: 'Weekly Summary',
-    xaxis: {
-      title: 'Exercise Name',
-      tickangle: -45,
-      tickfont: {
-        size: 12,
-        color: 'black'
-      }
-    },
-    yaxis: {
-      title: 'Energy (kj)',
-      tickfont: {
-        size: 12,
-        color: 'black'
-      }
-    },
-    bargap: 0.1,
-    bargroupgap: 0.2
-  };
+	// Define the layout options for the bar graph
+	const layout = {
+		paper_bgcolor: '#f0f0f0',
+		plot_bgcolor: '#f0f0f0',
+		title: 'Weekly Summary',
+		xaxis: {
+			title: 'Exercise Name',
+			tickangle: -45,
+			tickfont: {
+				size: 12,
+				color: 'black'
+			}
+		},
+		yaxis: {
+			title: 'Energy (kj)',
+			tickfont: {
+				size: 12,
+				color: 'black'
+			}
+		},
+		bargap: 0.1,
+		bargroupgap: 0.2
+	};
 
-  const config = {responsive: true}
+	const config = { responsive: true }
 
-  // Update the chart data and layout
-  Plotly.newPlot('chart-container', data, layout, config);
+	// Update the chart data and layout
+	Plotly.newPlot('chart-container', data, layout, config);
 }
 
 // Call the updateCards() function initially
 updateCards();
-
-// Call the updateBarGraph() function initially
-updateBarGraph();
-
 
 // Initial rendering of the bar graph
 Plotly.newPlot('chart-container', [], {});

@@ -1,28 +1,25 @@
 html {
+	/* general styles setting for whole HTML */
 	height: 100%;
 	width: 100%;
 	font-family: 'Roboto', sans-serif;
 }
 
 body {
+	/* General style setting fir body section  */
 	margin: 20px auto;
 	padding: 0 20px 400px;
 	max-width: 800px;
 	border: 3px solid #cccccc;
 }
 
-html {
-	height: 100%;
-	width: 100%;
-	font-family: 'Poppins', sans-serif;
-}
-
 header>h1 {
+	/* set styles for h1 text which is in the header  */
 	text-align: center;
 }
 
-/* style for profile page */
 .profile-section {
+	/* style for profile page */
 	border-radius: 10px;
 	background-color: #a0dbfd;
 	padding: 50px;
@@ -30,17 +27,21 @@ header>h1 {
 }
 
 .profile-container {
+	/* Styles for the profile container which contains profile detail */
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
 .profile-details {
+	/* Styles for the profile details which contains profile image, user name and information */
 	max-width: 500px;
 	margin: 0 auto;
+
 }
 
 .profile-image {
+	/* Set the layout for the profile image */
 	position: relative;
 	width: auto;
 	height: auto;
@@ -50,6 +51,7 @@ header>h1 {
 }
 
 .profile-image img {
+	/* Styles for the profile image */
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
@@ -57,6 +59,7 @@ header>h1 {
 }
 
 .profile-image::before {
+	/* Styles for the profile image's overlay  */
 	content: "";
 	position: absolute;
 	top: 0;
@@ -69,10 +72,12 @@ header>h1 {
 }
 
 .profile-image:hover::before {
+	/* set the hover animation for profile image  */
 	opacity: 1;
 }
 
 .profile-details h1 {
+	/* set the style for h1 text which is under profile detail  */
 	font-size: 36px;
 	margin: 20px 0;
 	color: #333;
@@ -80,45 +85,59 @@ header>h1 {
 }
 
 .profile-info {
+	/* set the style for profile info section which contains profile image, information and name  */
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
 
 .profile-info li {
+	/* set the style for information list  */
 	font-size: 18px;
 	margin-bottom: 10px;
 	color: #666;
 }
 
 .profile-info li strong {
+	/* set the style of information's title  */
 	font-weight: bold;
+	font-size: 22px;
 	color: #333;
 }
 
 @media (max-width: 768px) {
+	/* Media query for responsive layout on smaller screens */
 	.profile-details {
 		max-width: 90%;
 	}
+	.content,
+	.box {
+		font-size: 75%;
+	}
+
+	.bl-expand .box {
+		height: 130px;
+	}
+
+	.content>ul li {
+		width: 40%;
+	}
 }
 
-
-
-
-/* Styles for form rows */
 .form-row {
+	/* set tyles for form rows */
 	margin-bottom: 20px;
 }
 
-/* Styles for labels */
 label {
+	/* Styles for labels */
 	display: block;
 	margin-bottom: 5px;
 	font-weight: bold;
 }
 
-/* Styles for select dropdown */
 select {
+	/* Styles for select dropdown */
 	width: 100%;
 	padding: 10px;
 	border: none;
@@ -128,8 +147,8 @@ select {
 	font-size: 16px;
 }
 
-/* Styles for checkbox container */
 .checkbox-container {
+	/* Styles for checkbox container */
 	color: #8f8f8f;
 	border: 1px solid #ccc;
 	border-radius: 4px;
@@ -137,30 +156,20 @@ select {
 	background-color: #f5f5f5;
 }
 
-/* Styles for checkboxes */
 .checkbox-container input[type="checkbox"] {
+	/* Styles for checkboxes */
 	margin-right: 10px;
 }
 
-/* Additional styles for form appearance */
 body {
+	/* Additional styles for form appearance */
 	font-family: 'Roboto', sans-serif;
 	background-color: #f0f0f0;
 	padding: 20px;
 }
 
-form {
-	background-color: #fff;
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	max-width: 500px;
-	margin: 0 auto;
-}
-
-
-/* Styles for text input */
 input[type="text"] {
+	/* Styles for text input */
 	width: 100%;
 	padding: 10px;
 	border: none;
@@ -170,14 +179,8 @@ input[type="text"] {
 	font-size: 16px;
 }
 
-/* Additional styles for form appearance */
-body {
-	font-family: 'Roboto', sans-serif;
-	background-color: #f0f0f0;
-	padding: 20px;
-}
-
 form {
+	/* basic styles for form section  */
 	background-color: #b8ddff;
 	padding: 20px;
 	border-radius: 10px;
@@ -187,11 +190,13 @@ form {
 }
 
 #submit {
+	/* set style for submit button  */
 	margin-top: 20px;
 	text-align: center;
 }
 
 #submit input[type="submit"] {
+	/* Styles for the submit button */
 	background-color: #1b4965;
 	color: white;
 	padding: 10px 20px;
@@ -202,30 +207,13 @@ form {
 }
 
 #submit input[type="submit"]:hover {
-	background-color: #1b4965;
-}
-
-#reset {
-	margin-top: 20px;
-	text-align: center;
-}
-
-#reset input[type="reset"] {
-	background-color: #1b4965;
-	color: white;
-	padding: 10px 20px;
-	font-size: 16px;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-}
-
-#reset input[type="reset"]:hover {
+	/* Hover styles for the submit button */
 	background-color: #1b4965;
 }
 
 body,
 html {
+	/* Styles for the body and html elements */
 	font-size: 100%;
 	padding: 0;
 	margin: 0;
@@ -235,12 +223,14 @@ html {
 *,
 *:after,
 *:before {
+	/* Box sizing styles for all elements */
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
 body {
+	/* Styles for the body */
 	font-family: 'Poppins', sans-serif;
 	color: #8f8f8f;
 	background: #333;
@@ -249,6 +239,7 @@ body {
 }
 
 a {
+	/* Styles for links */
 	color: #464646;
 	text-decoration: none;
 	font-weight: 700;
@@ -259,56 +250,58 @@ a {
 }
 
 a:hover {
+	/* Hover styles for links */
 	color: #fff;
 }
 
-.container {
-	height: 100%;
-	width: 100%;
-}
-
-.bl-main {
+.main {
+	/* set the general styles for main section which contains all three sections  */
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
 }
 
-.bl-main>section {
+.main>section {
+	/* Styles for each section within the main section */
 	position: absolute;
 	width: 33%;
 	height: 100%;
 }
 
-.bl-main>section:first-child {
+.main>section:first-child {
+	/* Styles for the first section within the main section which is profile section  */
 	top: 0;
 	left: 0;
 	color: #f0f0f0;
 	background: #5fa8d3;
 }
 
-.bl-main>section:nth-child(2) {
+.main>section:nth-child(2) {
+	/* Styles for the second section within the main section which is data summary section */
 	top: 0;
 	left: 33%;
 	color: #1b4965;
 	background: #f0f0f0;
 }
 
-.bl-main>section:nth-child(3) {
+.main>section:nth-child(3) {
+	/* Styles for the third section within the main section which is new activity section*/
 	top: 0;
 	left: 66%;
 	color: #f0f0f0;
 	background: #1b4965;
 }
 
+.box {
+	/* reference: https://tympanus.net/codrops/2013/04/23/fullscreen-layout-with-page-transitions/ */
 
-.bl-box {
+	/* Styles for the box which is the main title for each section*/
 	position: relative;
 	width: 100%;
 	height: 100%;
 	cursor: pointer;
 	opacity: 1;
-	/* Centering with flexbox */
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
@@ -332,7 +325,8 @@ a:hover {
 	align-items: center;
 }
 
-.bl-box h2 {
+.box h2 {
+	/* set the styles for h2 text which is under the box  */
 	text-align: center;
 	margin: 0;
 	padding: 20px;
@@ -344,6 +338,7 @@ a:hover {
 }
 
 .bl-icon {
+	/* set the styles for close icon  */
 	font-family: 'Poppins', sans-serif;
 	font-style: normal;
 	font-weight: normal;
@@ -355,28 +350,14 @@ a:hover {
 }
 
 .bl-icon:before {
+	/* set the styles for pseudo-elements - close icon */
 	display: block;
 	font-size: 2em;
 	margin-bottom: 10px;
 }
 
-.bl-icon-about:before {
-	content: "\e000";
-}
-
-.bl-icon-works:before {
-	content: "\e001";
-}
-
-.bl-icon-blog:before {
-	content: "\e002";
-}
-
-.bl-icon-contact:before {
-	content: "\e003";
-}
-
-.bl-main>section .bl-icon-close {
+.main>section .bl-icon-close {
+	/* styles for close section which under 'section'  */
 	position: absolute;
 	top: 20px;
 	right: 20px;
@@ -386,12 +367,9 @@ a:hover {
 	pointer-events: none;
 }
 
-.bl-icon-close:before {
-	content: "\e005";
-}
-
 .content,
 div.bl-panel-items>div>div {
+	/* targets elements with the classes .content and div.bl-panel-items>div>div. */
 	opacity: 0;
 	pointer-events: none;
 	position: absolute;
@@ -404,9 +382,10 @@ div.bl-panel-items>div>div {
 	overflow-y: auto;
 }
 
-/* Custom content */
 
 .content p {
+	/* set the style of p text in each page  */
+	font-family: 'Roboto', sans-serif;
 	margin: 0 auto;
 	padding-bottom: 15px;
 	font-size: 1.7em;
@@ -414,203 +393,57 @@ div.bl-panel-items>div>div {
 }
 
 .content h2 {
+	/* set the style of h2 text in each page  */
+	font-family: 'Poppins', sans-serif;
 	font-size: 3em;
 	font-weight: 300;
 	margin: 0 0 20px 0;
 }
 
-.content article {
-	padding: 20px 40px 20px 0px;
-}
-
-.content article h3 {
-	font-weight: 700;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	margin: 0 0 10px 0;
-	padding-top: 20px;
-	font-size: 1.4em;
-}
-
-.content article a {
-	color: rgba(0, 0, 0, 0.2);
-}
-
-.content>ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-.content>ul li {
-	display: inline-block;
-	width: 20%;
-	margin: 1%;
-}
-
-.content>ul li a {
-	display: block;
-	padding: 0;
-	border: 8px solid rgba(0, 0, 0, 0.1);
-}
-
-.content>ul li a img {
-	display: block;
-	max-width: 100%;
-}
-
 #data_container {
+	/* set the style and layout of weekly chart and data cards  */
 	display: flex;
 	align-items: flex-start;
 }
 
-
-/* Panel Items */
-
-div.bl-panel-items,
-div.bl-panel-items>div {
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	position: absolute;
-}
-
-div.bl-panel-items>div>div {
-	width: 60%;
-	margin: 0 auto;
-	opacity: 1;
-	bottom: 90px;
-	top: 90px;
-	pointer-events: auto;
-}
-
-div.bl-panel-items>div>div h3 {
-	font-size: 2.4em;
-	font-weight: 300;
-	margin: 0 0 20px 0;
-}
-
-div.bl-panel-items>div>div p {
-	font-size: 1.3em;
-}
-
-div.bl-panel-items>div>div img {
-	float: left;
-	margin: 0 20px 20px 0;
-	max-width: 100%;
-}
-
-div.bl-panel-items {
-	top: 100%;
-	z-index: 9999;
-}
-
-div.bl-panel-items>div {
-	background: #3ba5db;
-	z-index: 0;
-	opacity: 0;
-	-webkit-transform: translateY(0);
-	-webkit-transition: -webkit-transform 0.5s ease-in-out, opacity 0s linear 0.5s;
-	-moz-transform: translateY(0);
-	-moz-transition: -moz-transform 0.5s ease-in-out, opacity 0s linear 0.5s;
-	transform: translateY(0);
-	transition: transform 0.5s ease-in-out, opacity 0s linear 0.5s;
-	-ms-transform: translateY(0);
-}
-
-div.bl-panel-items nav {
-	position: absolute;
-	z-index: 9999;
-	width: 216px;
-	left: 50%;
-	top: 0px;
-	margin-left: -108px;
-	opacity: 0;
-	-webkit-transition: opacity 0.2s ease-in-out 0.5s;
-	-moz-transition: opacity 0.2s ease-in-out 0.5s;
-	transition: opacity 0.2s ease-in-out 0.5s;
-}
-
-div.bl-panel-items.bl-panel-items-show nav span {
-	float: left;
-	margin: 5px;
-}
-
-div.bl-panel-items nav span.bl-next-work {
-	font-weight: 700;
-	letter-spacing: 2px;
-	display: block;
-	text-transform: uppercase;
-	line-height: 2em;
-	cursor: pointer;
-	margin-right: 2em;
-}
-
-div.bl-panel-items.bl-panel-items-show nav {
-	opacity: 1;
-	top: -70px;
-}
-
-div.bl-panel-items>div.bl-show-work {
-	z-index: 1000;
-	opacity: 1;
-	-webkit-transform: translateY(-100%);
-	-webkit-transition: -webkit-transform 0.5s ease-in-out;
-	-moz-transform: translateY(-100%);
-	-moz-transition: -moz-transform 0.5s ease-in-out;
-	transform: translateY(-100%);
-	transition: transform 0.5s ease-in-out;
-	-ms-transform: translateY(-100%);
-}
-
-div.bl-panel-items>div.bl-hide-current-work {
-	opacity: 0;
-	-webkit-transition: -webkit-transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-	-webkit-transform: translateY(-100%) scale(0.5);
-	-moz-transition: -moz-transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-	-moz-transform: translateY(-100%) scale(0.5);
-	transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-	transform: translateY(-100%) scale(0.5);
-	-ms-transform: translateY(-100%) scale(0.5);
-	z-index: 0;
-}
-
 /* Transition classes and properties */
 /* Separated for a better overview and control */
-
-.bl-main>section {
+.main>section {
 	-webkit-transition: all 0.5s ease-in-out;
 	-moz-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
 }
 
-.bl-main>section.bl-expand {
+.main>section.bl-expand {
 	width: 100%;
 	height: 100%;
 	top: 0;
 	left: 0;
 }
 
-.bl-main>section.bl-expand-top {
+.main>section.bl-expand-top {
 	z-index: 100;
 }
 
-.bl-main>section:first-child.bl-expand {
+.main>section:first-child.bl-expand {
+	/* set the bg color of first section (profile section) */
 	background: #5fa8d3;
 }
 
-.bl-main>section:nth-child(2).bl-expand {
+.main>section:nth-child(2).bl-expand {
+	/* set the bg color of second section (summary section) */
 	background: #f0f0f0;
 }
 
-.bl-main>section:nth-child(3).bl-expand {
+.main>section:nth-child(3).bl-expand {
+	/* set the bg color of third section (form section) */
 	background: #1b4965;
 	color: #5fa8d3;
 }
 
-.bl-main.bl-expand-item>section:not(.bl-expand),
-.bl-main.bl-expand-item>section.bl-scale-down {
+.main.bl-expand-item>section:not(.bl-expand),
+.main.bl-expand-item>section.bl-scale-down {
+	/* set main styles for transition  */
 	-webkit-transform: scale(0.5);
 	-moz-transform: scale(0.5);
 	-ms-transform: scale(0.5);
@@ -618,32 +451,35 @@ div.bl-panel-items>div.bl-hide-current-work {
 	opacity: 0;
 }
 
-.bl-box {
+.box {
+	/* set the transition styles for box  */
 	-webkit-transition: opacity 0.2s linear 0.5s;
 	-moz-transition: opacity 0.2s linear 0.5s;
 	transition: opacity 0.2s linear 0.5s;
 }
 
-section.bl-expand .bl-box {
+section.bl-expand .box {
+	/* set teh styles for animation  */
 	opacity: 0;
 	-webkit-transition: opacity 0s linear;
 	-moz-transition: opacity 0s linear;
 	transition: opacity 0s linear;
 }
 
-.bl-box h2 {
-	-webkit-transition: all 0.2s ease-in-out;
-	-moz-transition: all 0.2s ease-in-out;
-	transition: all 0.2s ease-in-out;
-}
-
-.no-touch section:not(.bl-expand) .bl-box:hover h2 {
+.no-touch section:not(.bl-expand) .box:hover h2 {
+	/* set the hover animation for three main button (profile, data summary, new activity)  */
 	-webkit-transform: translateY(-15px);
 	-moz-transform: translateY(-15px);
 	-ms-transform: translateY(-15px);
 	transform: translateY(-15px);
 }
 
+.box h2 {
+	/* set the style of animation of three main buttons */
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
 .content,
 .bl-icon-close {
 	-webkit-transition: opacity 0.1s linear 0s;
@@ -660,24 +496,9 @@ section.bl-expand .bl-icon-close {
 	transition: opacity 0.3s linear 0.5s;
 }
 
-@media screen and (max-width: 46.5em) {
-
-	.content,
-	.bl-box {
-		font-size: 75%;
-	}
-
-	.bl-expand .bl-box {
-		height: 130px;
-	}
-
-	.content>ul li {
-		width: 40%;
-	}
-}
-
 .card {
-	width:100%;
+	/* set the style for exercise card  */
+	width: 100%;
 	position: relative;
 	margin: 1rem;
 	background: #f0f0f0;
@@ -688,10 +509,12 @@ section.bl-expand .bl-icon-close {
 }
 
 .card:hover {
+	/* set the hover style for exercise card  */
 	transform: scale(1.02);
 }
 
 .card h1 {
+	/* set the h1 text for exercise card  */
 	text-align: center;
 	padding: 1.5rem 2.5rem;
 	background-image: linear-gradient(120deg, #1b4965 0%, #a6c1ee 100%);
@@ -700,6 +523,7 @@ section.bl-expand .bl-icon-close {
 }
 
 .card p {
+	/* set the p text for exercise card  */
 	padding: 2em;
 	margin: 0;
 }
