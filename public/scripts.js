@@ -265,10 +265,10 @@ function updateBarGraph() {
     bargroupgap: 0.2
   };
 
-  var config = {responsive: true}
+  const config = {responsive: true}
 
   // Update the chart data and layout
-  Plotly.newPlot('chart-container', data, layout,config);
+  Plotly.newPlot('chart-container', data, layout, config);
 }
 
 // Call the updateCards() function initially
