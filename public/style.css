@@ -211,7 +211,7 @@ form {
 
 #submit input[type="submit"]:hover {
 	/* Hover styles for the submit button */
-	background-color: #1b4965;
+	transform: scale(1.1);
 }
 
 body,
@@ -569,7 +569,7 @@ section.bl-expand .bl-icon-close {
 .card h1 {
 	/* set the h1 text for exercise card  */
 	text-align: center;
-	padding: 1.5rem 2.5rem;
+	padding: 1.5rem .5rem;
 	background-image: linear-gradient(90deg, #1b4965 0%, #a6c1ee 100%);
 	font-size: 1.8rem;
 	color: white;
