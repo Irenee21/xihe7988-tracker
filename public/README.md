@@ -31,7 +31,7 @@
 <img src="md_img/final_summary.png" width="250"/>
 
   * __Feedback__:
-  1. During accessibility testing of this page, it was found to have low contrast between the background and text.
+  1. During accessibility testing of this page, it was found to have low contrast between the background and text. The result is only 3.94, however the ideal result is above 7.
   <img src="md_img/Accessibility_test.png" width="180"/>
   2. There are many text boxes, which appear messy.
   3. The white background may cause eye strain.
