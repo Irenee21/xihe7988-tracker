@@ -152,6 +152,19 @@ function updateCards() {
 // Get form element
 const form = document.getElementById('taskform');
 
+function generateUserId() {
+	// generate a random number for user ID 
+	const min = 100000; // Minimum value for userId
+	const max = 999999; // Maximum value for userId
+  
+	// Generate a random number between min and max (inclusive)
+	const userId = Math.floor(Math.random() * (max - min + 1)) + min;
+  
+	return userId;
+  }
+  const userId = generateUserId();
+
+
 // Add event listener to form submission
 form.addEventListener('submit', function (e) {
 	e.preventDefault(); // Prevent form submission
@@ -166,9 +179,11 @@ form.addEventListener('submit', function (e) {
 		document.getElementsByName('taskTime')[1].value
 	];
 	const taskComments = document.getElementById('taskComments').value;
+	const userId = generateUserId();
 
 	// Create an object to store the current user input data
 	const userData = {
+		userId,
 		taskName,
 		taskCategory,
 		taskMood,
