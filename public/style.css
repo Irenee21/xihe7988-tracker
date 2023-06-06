@@ -80,7 +80,7 @@ header>h1 {
 	/* set the style for h1 text which is under profile detail  */
 	font-size: 36px;
 	margin: 20px 0;
-	color: #333;
+	color: #171717;
 	text-transform: uppercase;
 }
 
@@ -102,7 +102,7 @@ header>h1 {
 	/* set the style of information's title  */
 	font-weight: bold;
 	font-size: 22px;
-	color: #333;
+	color: #171717;
 }
 
 @media (max-width: 768px) {
@@ -116,6 +116,7 @@ header>h1 {
 	.box {
 		font-size: 75%;
 	}
+
 
 	.bl-expand .box {
 		height: 130px;
@@ -235,7 +236,7 @@ body {
 	/* Styles for the body */
 	font-family: 'Poppins', sans-serif;
 	color: #8f8f8f;
-	background: #333;
+	background: #171717;
 	font-size: 0.9em;
 	font-weight: 300;
 }
@@ -410,7 +411,7 @@ div.bl-panel-items>div>div {
 }
 
 .summary_table {
-	color:#333;
+	color:#171717;
 	flex: 1;
 	display: flex;
 	margin: -1px;
@@ -427,7 +428,7 @@ div.bl-panel-items>div>div {
 
 .table_content {
 	padding: 2%;
-	border: 1px dashed white;
+	border: 1px dashed #163c5379;
 	border-radius: 4;
 	position: relative;
 }
@@ -569,7 +570,7 @@ section.bl-expand .bl-icon-close {
 	/* set the h1 text for exercise card  */
 	text-align: center;
 	padding: 1.5rem 2.5rem;
-	background-image: linear-gradient(120deg, #1b4965 0%, #a6c1ee 100%);
+	background-image: linear-gradient(90deg, #1b4965 0%, #a6c1ee 100%);
 	font-size: 1.8rem;
 	color: white;
 }
@@ -578,6 +579,7 @@ section.bl-expand .bl-icon-close {
 	/* set the p text for exercise card  */
 	padding: 2em;
 	margin: 0;
+	font-size: 1.4rem;
 }
 
 .delete-button {

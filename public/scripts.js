@@ -128,7 +128,8 @@ function createCard(userInputData) {
 	heading.textContent = userInputData.taskName;
 
 	let paragraph = document.createElement("p");
-	paragraph.innerHTML = `Exercise Energy: ${userInputData.taskEnergy}kj <br/> Exercise Category: ${userInputData.taskCategory}`;
+	paragraph.innerHTML = `Exercise Energy: ${userInputData.taskEnergy}kj <br/> Exercise Category: ${userInputData.taskCategory} 
+	<br/> Exercise Mood: ${userInputData.taskMood} <br/> Exercise Comments: ${userInputData.taskComments}`;
 
 	let deleteButton = document.createElement("button");
 	deleteButton.textContent = "Delete";
