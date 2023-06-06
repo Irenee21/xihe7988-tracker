@@ -32,7 +32,7 @@
 
   * __Feedback__:
   1. During accessibility testing of this page, it was found to have low contrast between the background and text.
-  <img src="md_img/accessibility_test.png" width="180"/>
+  <img src="md_img/Accessibility_test.png" width="180"/>
   2. There are many text boxes, which appear messy.
   3. The white background may cause eye strain.
   4. When data is spread across multiple pages, users may need to navigate through various links or menus to find the information they are looking for. This can be time-consuming and may lead to frustration if the navigation is not intuitive or well-designed.
