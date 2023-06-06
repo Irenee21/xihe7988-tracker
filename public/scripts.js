@@ -113,8 +113,9 @@ var Boxlayout = (function () {
 })();
 
 
-let userInputData = [];
-// it defines "userInputData" is an array that will store user input data
+let userInputData = JSON.parse(window.localStorage.getItem('userInputData'));
+// it make sure userInputData won't be replaced by new data after refresh page
+
 let data_list = document.querySelector(".data-list");
 // "data_list" is a reference to the HTML element with the class "data-list" using the document.querySelector method
 function createCard(userInputData) {
@@ -225,7 +226,9 @@ form.addEventListener('submit', function (e) {
 
 	updateCards();
 
+	// clear current filled form 
 	form.reset();
+	// reload window to update data 
     window.location.reload();
 });
 
