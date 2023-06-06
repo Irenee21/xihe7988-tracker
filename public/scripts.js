@@ -129,8 +129,16 @@ function createCard(userInputData) {
 	let paragraph = document.createElement("p");
 	paragraph.innerHTML = `Exercise Energy: ${userInputData.taskEnergy}kj <br/> Exercise Category: ${userInputData.taskCategory}`;
 
+	let deleteButton = document.createElement("button");
+	deleteButton.textContent = "Delete";
+	deleteButton.addEventListener("click", function() {
+	  deleteCard(userInputData.userId); // Call the deleteItem function passing the index of the item to delete
+	});
+
 	card.appendChild(heading);
 	card.appendChild(paragraph);
+	card.appendChild(deleteButton);
+
 
 	return card;
 }
@@ -148,6 +156,20 @@ function updateCards() {
 		});
 	}
 }
+
+function deleteCard(userId) {
+	// Function to delete a card and corresponding item from localStorage based on userId
+	if (stored_data !== null) {
+	  // Check if stored_data exists
+	  stored_data = stored_data.filter((userInputData) => userInputData.userId !== userId);
+  
+	  // Update the localStorage with the updated data
+	  localStorage.setItem("yourLocalStorageKey", JSON.stringify(stored_data));
+  
+	  updateCards(); // Update the cards to reflect the changes
+	  console.log("Item deleted successfully.");
+	}
+  }
 
 // Get form element
 const form = document.getElementById('taskform');
