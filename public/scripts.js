@@ -276,7 +276,7 @@ function updateBarGraph() {
 		bargroupgap: 0.2
 	};
 
-	const config = { responsive: true }
+	const config = { responsive: true };
 
 	// Update the chart data and layout
 	Plotly.newPlot('chart-container', data, layout, config);

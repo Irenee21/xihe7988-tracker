@@ -106,10 +106,12 @@ header>h1 {
 }
 
 @media (max-width: 768px) {
+
 	/* Media query for responsive layout on smaller screens */
 	.profile-details {
 		max-width: 90%;
 	}
+
 	.content,
 	.box {
 		font-size: 75%;
@@ -400,10 +402,27 @@ div.bl-panel-items>div>div {
 	margin: 0 0 20px 0;
 }
 
+.content h4 {
+	/* set the style for h4 text  */
+	position: sticky;
+	top: 0;
+	overflow-y: auto;
+} 
+
 #data_container {
 	/* set the style and layout of weekly chart and data cards  */
 	display: flex;
 	align-items: flex-start;
+	position: relative;
+}
+
+#chart-container {
+	/* place the chart  */
+	margin-bottom: 100%;
+}
+
+.data-list {
+	overflow-y: scroll;
 }
 
 /* Transition classes and properties */
@@ -480,6 +499,7 @@ section.bl-expand .box {
 	-moz-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
+
 .content,
 .bl-icon-close {
 	-webkit-transition: opacity 0.1s linear 0s;
@@ -541,12 +561,10 @@ section.bl-expand .bl-icon-close {
 	transition: background-color 0.3s ease;
 	margin-left: 40%;
 	margin-bottom: 5%;
-  }
-  
-  .delete-button:hover {
+}
+
+.delete-button:hover {
 	/* hover style for delete button */
 	background-color: #ff2020;
 	transform: scale(1.05);
-  }
-  
-  
+}
