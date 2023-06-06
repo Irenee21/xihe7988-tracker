@@ -131,6 +131,8 @@ function createCard(userInputData) {
 
 	let deleteButton = document.createElement("button");
 	deleteButton.textContent = "Delete";
+	deleteButton.classList.add("delete-button"); 
+	// easier to styles this button in css
 	deleteButton.addEventListener("click", function() {
 	  deleteCard(userInputData.userId); // Call the deleteItem function passing the index of the item to delete
 	});
@@ -156,6 +158,7 @@ function updateCards() {
 		});
 	}
 }
+
 
 function deleteCard(userId) {
 	// Function to delete a card and corresponding item from localStorage based on userId
