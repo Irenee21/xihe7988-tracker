@@ -224,6 +224,9 @@ form.addEventListener('submit', function (e) {
 	localStorage.setItem('userInputData', JSON.stringify(userInputData));
 
 	updateCards();
+
+	form.reset();
+    window.location.reload();
 });
 
 // Retrieve userInputData from local storage

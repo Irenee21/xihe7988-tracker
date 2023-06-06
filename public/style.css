@@ -407,7 +407,39 @@ div.bl-panel-items>div>div {
 	position: sticky;
 	top: 0;
 	overflow-y: auto;
-} 
+}
+
+.summary_table {
+	color:#333;
+	flex: 1;
+	display: flex;
+	margin: -1px;
+	flex-direction: column;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.table_row{
+	display: flex;
+	flex-direction: row;
+	flex: 1;
+}
+
+.table_content {
+	padding: 2%;
+	border: 1px dashed white;
+	border-radius: 4;
+	position: relative;
+}
+
+.table_integer {
+	text-align: right;
+	color:#1b4965;
+	position: relative;
+	bottom: 0;
+	margin-top: 6%;
+	margin-left: 10%;
+}
 
 #data_container {
 	/* set the style and layout of weekly chart and data cards  */
@@ -418,7 +450,7 @@ div.bl-panel-items>div>div {
 
 #chart-container {
 	/* place the chart  */
-	margin-bottom: 100%;
+	margin-bottom: 0%;
 }
 
 .data-list {
