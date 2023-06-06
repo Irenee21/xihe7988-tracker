@@ -171,6 +171,16 @@ body {
 	padding: 20px;
 }
 
+form {
+	/* basic styles for form section  */
+	background-color: #b8ddff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	max-width: 500px;
+	margin: 0 auto;
+}
+
 input[type="text"] {
 	/* Styles for text input */
 	width: 100%;
@@ -182,14 +192,13 @@ input[type="text"] {
 	font-size: 16px;
 }
 
-form {
-	/* basic styles for form section  */
-	background-color: #b8ddff;
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	max-width: 500px;
-	margin: 0 auto;
+input[type=time] {
+	border: none;
+	color: #333;
+	font-size: 14px;
+
+	width: 100%;
+	border-radius: 3px;
 }
 
 #submit {
@@ -411,7 +420,7 @@ div.bl-panel-items>div>div {
 }
 
 .summary_table {
-	color:#171717;
+	color: #171717;
 	flex: 1;
 	display: flex;
 	margin: -1px;
@@ -420,7 +429,7 @@ div.bl-panel-items>div>div {
 	margin-bottom: 30px;
 }
 
-.table_row{
+.table_row {
 	display: flex;
 	flex-direction: row;
 	flex: 1;
@@ -435,7 +444,7 @@ div.bl-panel-items>div>div {
 
 .table_integer {
 	text-align: right;
-	color:#1b4965;
+	color: #1b4965;
 	position: relative;
 	bottom: 0;
 	margin-top: 6%;
