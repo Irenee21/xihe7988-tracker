@@ -417,6 +417,7 @@ div.bl-panel-items>div>div {
 	position: sticky;
 	top: 0;
 	overflow-y: auto;
+	background-color: #f0f0f0;
 }
 
 .summary_table {
